@@ -35,6 +35,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition-property: width, height, background-color;
+    transition-duration: 0.3s;
   }
 
   svg {
@@ -89,6 +91,9 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(20%);
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -102,6 +107,7 @@
     margin-top: 0;
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
@@ -112,6 +118,7 @@
     margin-top: 0;
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
   }
 
   &::before {
@@ -127,19 +134,13 @@
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within,
+  .social-block--active &,
+  .social-block__toggler:focus ~ & {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  &:focus-within {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .social-block--active & {
-    opacity: 1;
-    pointer-events: auto;
+    transform: translateY(0);
   }
 
   li {

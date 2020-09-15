@@ -7,7 +7,7 @@
   overflow: hidden;
 
   &--hidden {
-    display: none;
+    visibility: hidden;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -290,7 +290,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
