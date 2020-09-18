@@ -46,14 +46,12 @@
   border-radius: 3rem;
   outline: none;
   opacity: 0;
-  transition-property: flex-grow, flex-basis, opacity;
   transition-duration: 0.5s;
   transition-delay: 0.3s;
 
   .screen.active & {
     opacity: 1;
     flex-grow: 1;
-    flex-basis: 1;
   }
 
   &:focus {
@@ -91,7 +89,7 @@
 }
 
 .form__button {
-  flex-grow: 0;
+  flex-shrink: 0;
 
   @media (orientation: portrait) {
     position: relative;
