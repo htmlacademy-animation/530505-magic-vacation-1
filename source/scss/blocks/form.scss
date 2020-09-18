@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .form__label {
@@ -30,7 +31,8 @@
 }
 
 .form__field {
-  flex: none;
+  flex-basis: 0;
+  flex-grow: 0;
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
@@ -43,6 +45,14 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-delay: 0.3s;
+
+  .screen.active & {
+    opacity: 1;
+    flex-grow: 1;
+  }
 
   &:focus {
     border: 1px solid $c-purple;
@@ -79,7 +89,7 @@
 }
 
 .form__button {
-  flex-grow: 1;
+  flex-shrink: 0;
 
   @media (orientation: portrait) {
     position: relative;

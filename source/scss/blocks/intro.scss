@@ -94,6 +94,17 @@
   font-size: 2.4rem;
   line-height: 1.27;
 
+  opacity: 0;
+  transform: translateY(30%);
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-delay: 1.5s;
+
+  .screen.active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (min-width: $stop-scaling) {
     width: 509px;
     font-size: 24px;

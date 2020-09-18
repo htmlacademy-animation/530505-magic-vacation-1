@@ -18,6 +18,7 @@
   flex-direction: column;
   padding: 14.6rem 4rem 10rem 9.7rem;
   height: auto;
+  visibility: hidden;
 
   @media (min-width: $stop-scaling) {
     padding: 146px 40px 100px 97px;
@@ -96,6 +97,12 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(30%);
+  visibility: hidden;
+  transition-property: opacity, transform;
+  transition-duration: 300ms;
+  transition-delay: 300ms;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -122,6 +129,17 @@
     min-height: 14rem;
     font-size: 1.4rem;
     line-height: 1.5rem;
+  }
+
+  .screen.active .swiper-slide-active &,
+  .screen.active .swiper-slide-next & {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .screen.active .swiper-slide-next & {
+    transition-delay: 600ms;
   }
 }
 
