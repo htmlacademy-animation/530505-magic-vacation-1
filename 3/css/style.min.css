@@ -2199,18 +2199,16 @@ img {
 
 .bg-prizes-slide {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  bottom: 0;
+  z-index: 0;
+  height: 0;
   background-color: #5f458c;
-  z-index: -1;
-  visibility: hidden;
-  transition: height 0.5s ease-in-out; }
+  transition: height 0.35s ease-in-out; }
   body[data-prev-screen-name="story"][data-screen-name="prizes"] .bg-prizes-slide {
-    visibility: visible;
-    height: 0;
-    z-index: 2; }
+    height: 100%;
+    z-index: 1; }
 
 .result {
   flex-grow: 1;
@@ -2898,7 +2896,8 @@ img {
       background-position: top center, bottom center; } }
 
 .screen--prizes {
-  background-color: #5f458c; }
+  background-color: #5f458c;
+  z-index: 2; }
 
 .screen--game {
   position: relative;
