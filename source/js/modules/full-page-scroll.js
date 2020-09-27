@@ -50,32 +50,36 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.logScreen();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
-    this.logScreen();
   }
 
   changeVisibilityDisplay() {
-    const sectionDelay = this.screenElements[this.activeScreen].dataset.delay;
+    const newScreen = this.screenElements[this.activeScreen];
 
-    const change = () => {
+    const screenDelay = newScreen.dataset.delay;
+    const prevScreen = newScreen.dataset.delayPrevScreen;
+    const currentPrevScreen = document.body.dataset.prevScreenName;
+
+    const changeScreen = () => {
       this.screenElements.forEach((screen) => {
         screen.classList.add(`screen--hidden`);
         screen.classList.remove(`active`);
       });
 
-      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-      this.screenElements[this.activeScreen].classList.add(`active`);
+      newScreen.classList.remove(`screen--hidden`);
+      newScreen.classList.add(`active`);
     };
 
-    if (sectionDelay) {
-      setTimeout(change, sectionDelay);
+    if (screenDelay && prevScreen && prevScreen === currentPrevScreen) {
+      setTimeout(changeScreen, screenDelay);
 
       return;
     }
 
-    change();
+    changeScreen();
   }
 
   changeActiveMenuItem() {

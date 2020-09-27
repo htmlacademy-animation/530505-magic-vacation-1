@@ -342,7 +342,7 @@
 
   transition: height 0.35s ease-in-out;
 
-  body[data-prev-screen-name="story"][data-screen-name="prizes"] & {
+  body[data-screen-name="prizes"] & {
     height: 100%;
     z-index: 1;
   }
