@@ -2206,7 +2206,7 @@ img {
   height: 0;
   background-color: #5f458c;
   transition: height 0.35s ease-in-out; }
-  body[data-prev-screen-name="story"][data-screen-name="prizes"] .bg-prizes-slide {
+  body[data-screen-name="prizes"] .bg-prizes-slide {
     height: 100%;
     z-index: 1; }
 
