@@ -10408,6 +10408,8 @@ class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+
+    this.screenName = this.screenElements[this.activeScreen].id;
   }
 
   logScreen() {
