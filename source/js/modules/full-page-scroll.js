@@ -85,22 +85,6 @@ export default class FullPageScroll {
 
     document.body.dispatchEvent(event);
 
-    document.body.dataset.screenName = screenName;
-  }
-
-  emitChangeDisplayEvent() {
-    const screenName = this.screenElements[this.activeScreen].id;
-
-    const event = new CustomEvent(`screenChanged`, {
-      detail: {
-        screenId: this.activeScreen,
-        screenName,
-        screenElement: this.screenElements[this.activeScreen],
-      },
-    });
-
-    document.body.dispatchEvent(event);
-
     if (document.body.dataset.screenName) {
       document.body.dataset.prevScreenName = document.body.dataset.screenName;
     }
