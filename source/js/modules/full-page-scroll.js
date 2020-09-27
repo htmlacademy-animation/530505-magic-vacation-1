@@ -12,6 +12,7 @@ export default class FullPageScroll {
     );
 
     this.activeScreen = 0;
+    this.screenName = this.screenElements[this.activeScreen].id;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
   }
@@ -44,6 +45,7 @@ export default class FullPageScroll {
       (screen) => location.hash.slice(1) === screen.id
     );
     this.activeScreen = newIndex < 0 ? 0 : newIndex;
+    this.screenName = this.screenElements[this.activeScreen].id;
     this.changePageDisplay();
   }
 
@@ -51,6 +53,7 @@ export default class FullPageScroll {
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    this.logScreen();
   }
 
   changeVisibilityDisplay() {
@@ -73,23 +76,15 @@ export default class FullPageScroll {
   }
 
   emitChangeDisplayEvent() {
-    const screenName = this.screenElements[this.activeScreen].id;
-
     const event = new CustomEvent(`screenChanged`, {
       detail: {
         screenId: this.activeScreen,
-        screenName,
+        screenName: this.screenName,
         screenElement: this.screenElements[this.activeScreen],
       },
     });
 
     document.body.dispatchEvent(event);
-
-    if (document.body.dataset.screenName) {
-      document.body.dataset.prevScreenName = document.body.dataset.screenName;
-    }
-
-    document.body.dataset.screenName = screenName;
   }
 
   reCalculateActiveScreenPosition(delta) {
@@ -101,5 +96,13 @@ export default class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+  }
+
+  logScreen() {
+    if (document.body.dataset.screenName) {
+      document.body.dataset.prevScreenName = document.body.dataset.screenName;
+    }
+
+    document.body.dataset.screenName = this.screenName;
   }
 }
