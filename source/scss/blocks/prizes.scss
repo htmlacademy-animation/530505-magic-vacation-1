@@ -330,3 +330,21 @@
     }
   }
 }
+
+.bg-prizes-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: $c-dark;
+  z-index: -1;
+  visibility: hidden;
+  transition: height 0.5s ease-in-out;
+
+  body[data-prev-screen-name="story"][data-screen-name="prizes"] & {
+    visibility: visible;
+    height: 0;
+    z-index: 2;
+  }
+}
