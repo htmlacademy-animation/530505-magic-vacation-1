@@ -330,3 +330,20 @@
     }
   }
 }
+
+.bg-prizes-slide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  height: 0;
+  background-color: $c-dark;
+
+  transition: height 0.35s ease-in-out;
+
+  body[data-screen-name="prizes"] & {
+    height: 100%;
+    z-index: 1;
+  }
+}
